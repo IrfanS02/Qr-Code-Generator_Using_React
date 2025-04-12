@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out, float 6s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.app-container h1 {
+    font-weight: 500;
+    font-size: 28px;
+    color: #333; /* Solid color instead of gradient text */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    display: inline-block;
+    animation: slideIn 0.8s ease-in-out;
+    position: relative; /* For the underline effect */
+}
+
+/* Add a cool underline animation for h1 */
+.app-container h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+}
+
+.app-container:hover h1::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.qr-code {
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background: #fff;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: popIn 0.5s ease-in-out, glow 3s infinite alternate;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qr-code:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(118, 75, 162, 0.6);
+    }
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    animation: fadeIn 1s ease-in-out;
+}
+
+input[type="text"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+    transform: scale(1.02);
+    outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+button:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.generatebutton {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.generatebutton:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+.generatebutton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.downloadbutton {
+    background: linear-gradient(135deg, #28a745, #218838);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.downloadbutton:hover {
+    background: linear-gradient(135deg, #218838, #28a745);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Advanced hover effects */
+.app-container:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* Background animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    animation: moveBackground 20s infinite linear;
+    z-index: -1;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
